@@ -1,6 +1,6 @@
 natpierce for magisk
 
-一个用于在 Android 上运行 皎月连 (natpierce) 的 Magisk 模块，支持自动启动、模块开关控制服务、虚拟组网以及局域网访问。
+一个用于在 Android 上运行 皎月连 (natpierce) 的 Magisk 模块，支持开机自动启动、模块开关控制服务、虚拟组网以及局域网访问。
 
 该模块可以让获取了root的Android 设备作为服务端使用。
 
@@ -29,6 +29,8 @@ natpierce for magisk
 
 安装模块后：
 
+开机自动启动服务
+
 Magisk 开启模块 → 启动 natpierce
 
 Magisk 关闭模块 → 停止 natpierce
@@ -47,6 +49,8 @@ natpierce.log
 module.txt
 大小超过1MB自动清理
 
+配置文件位置:/data/adb/modules/natpierce/systen/bin/data/config
+可以保存配置文件便于以后跳过繁琐的登录以及配置过程ovo
 
 免责声明
 本项目仅用于学习和研究用途，请遵守当地法律法规。

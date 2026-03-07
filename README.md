@@ -4,6 +4,8 @@ natpierce for magisk
 
 该模块可以让获取了root的Android 设备作为服务端使用。
 
+皎月连官网:https://www.natpierce.cn/
+
 测试环境安卓16 设备一加pad2pro 已测试内容:点对网可用
 
 ！注意:不能与其他vpn共存，开启其他vpn后，皎月连会停止服务。需要先关闭vpn再到magisk中重新开关一下进行重启！

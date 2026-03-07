@@ -10,7 +10,7 @@ natpierce for magisk
 
 该模块基于https://natpierce.oss-cn-beijing.aliyuncs.com/linux/natpierce-arm64-v1.06.tar.gz  制作,其他架构设备效果未知需自行测试。
 
-测试方法：官网页面下载对应架构的linux二进制文件->https://www.natpierce.cn/pc/downloads/index_new.html,解压缩后获得natpierce 将/system/bin 下的natpierce替换为对应架构的二进制文件即可
+测试方法：官网页面下载对应架构的linux二进制文件->https://www.natpierce.cn/pc/downloads/index_new.html  解压缩后获得natpierce 将/system/bin 下的natpierce替换为对应架构的二进制文件即可
 
 
 

@@ -45,7 +45,7 @@ if [ -f "$LOG_FILE" ]; then
         # 清空文件内容，但保留文件
         : > "$LOG_FILE"
         
-        # 记录一次清理日志的操作（可选）
+        # 记录一次清理日志的操作
         echo "[$(date "+%Y-%m-%d %H:%M:%S")] 日志超过1MB，已执行自动清空。" > "$LOG_FILE"
     fi
 fi

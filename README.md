@@ -49,7 +49,7 @@ natpierce.log
 module.txt
 大小超过1MB自动清理
 
-配置文件位置:/data/adb/modules/natpierce/systen/bin/data/config
+配置文件位置:/data/adb/modules/natpierce/system/bin/data/config
 
 可以保存配置文件便于以后跳过繁琐的登录以及配置过程ovo
 

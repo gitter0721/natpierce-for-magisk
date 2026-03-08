@@ -1,4 +1,4 @@
-natpierce for magisk
+**natpierce for magisk**
 
 一个用于在 Android 上运行 皎月连 (natpierce) 的 Magisk 模块，支持开机自动启动、模块开关控制服务、虚拟组网以及局域网访问。
 
@@ -6,14 +6,14 @@ natpierce for magisk
 
 皎月连官网:https://www.natpierce.cn/
 
-测试环境安卓16 设备一加pad2pro 已测试内容:点对网可用
+测试环境安卓16 设备一加pad2pro 
 
 该模块基于https://natpierce.oss-cn-beijing.aliyuncs.com/linux/natpierce-arm64-v1.06.tar.gz  制作,其他架构设备效果未知需自行测试。
 
 测试方法：官网页面下载对应架构的linux二进制文件->https://www.natpierce.cn/pc/downloads/index_new.html  解压缩后获得natpierce 将/system/bin 下的natpierce替换为对应架构的二进制文件后，重新压缩为zip安装即可
 
 
-！注意:不能与其他vpn共存，开启其他vpn后，皎月连会停止服务。需要先关闭vpn再到magisk中重新开关一下进行重启！
+！注意:**请勿刷新网页**,**不能与其他vpn共存**，开启其他vpn后，**皎月连会停止服务**。**需要先关闭vpn再到magisk中重新开关一下进行重启**！
 
 安装
 

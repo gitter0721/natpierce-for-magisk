@@ -3,8 +3,14 @@
 MODDIR=${0%/*}
 
 
-# 等待系统启动
-sleep 5
+# 循环等待系统完全启动
+while [ "$(getprop sys.boot_completed)" != "1" ]; do
+    sleep 3
+done
+
+dumpsys deviceidle disable
+
+echo "prevent_deep_sleep_forever" > /sys/power/wake_lock
 
 # 启动服务
 $MODDIR/scripts/start.sh

@@ -21,19 +21,21 @@ $MODDIR/system/bin/natpierce -S -p 33272 \
 iptables -P INPUT ACCEPT
 iptables -P OUTPUT ACCEPT
 iptables -P FORWARD ACCEPT
+iptables -I INPUT 1 -i natpierce -j ACCEPT
+iptables -I FORWARD 1 -i natpierce -j ACCEPT
+iptables -I FORWARD 1 -o natpierce -j ACCEPT
 
 # 开启转发
 echo 1 > /proc/sys/net/ipv4/ip_forward
 
-# 插入 FORWARD 规则到最前
-iptables -I FORWARD 1 -i natpierce -j ACCEPT
-iptables -I FORWARD 1 -o natpierce -j ACCEPT
+# 关闭 rp_filter
+echo 0 > /proc/sys/net/ipv4/conf/all/rp_filter
+echo 0 > /proc/sys/net/ipv4/conf/default/rp_filter
 
-# NAT
-iptables -t nat -I POSTROUTING 1 -s 10.6.22.0/24 -o wlan0 -j MASQUERADE
 
-# policy routing
-ip rule add to 10.6.22.0/24 lookup main priority 1000 2>/dev/null
+# 修复 Android policy routing
+ip rule add pref 1000 lookup main 2>/dev/null
+
 
 # 检查文件是否存在
 if [ -f "$LOG_FILE" ]; then
@@ -45,7 +47,7 @@ if [ -f "$LOG_FILE" ]; then
         # 清空文件内容，但保留文件
         : > "$LOG_FILE"
         
-        # 记录一次清理日志的操作
+        # 记录一次清理日志的操作（可选）
         echo "[$(date "+%Y-%m-%d %H:%M:%S")] 日志超过1MB，已执行自动清空。" > "$LOG_FILE"
     fi
 fi

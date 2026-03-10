@@ -62,3 +62,5 @@ module.txt
 
 免责声明
 本项目仅用于学习和研究用途，请遵守当地法律法规。
+
+![Downloads](https://img.shields.io/github/downloads/gitter0721/natpierce-for-magisk/total)

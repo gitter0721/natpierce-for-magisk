@@ -1,66 +1,80 @@
 **natpierce for magisk**
 
-一个用于在 Android 上运行 皎月连 (natpierce) 的 Magisk 模块，支持开机自动启动、模块开关控制服务、虚拟组网以及局域网访问。
 
-该模块可以让获取了root的Android 设备作为服务端使用。
+一个用于在 Android 上运行 皎月连 (natpierce) 的 Magisk 模块，支持开机自动启动、模块开关控制服务、虚拟组网以及局域网访问。该模块可以让获取了 Root 权限的 Android 设备作为服务端使用。
 
-皎月连官网:https://www.natpierce.cn/
+皎月连官网: https://www.natpierce.cn/
 
-测试环境安卓16 设备一加pad2pro 
+⚠️ 重要注意事项 (必读)
+请勿刷新网页：在 Web 管理界面操作时请避免刷新网页，以免引起状态异常。
 
-该模块基于https://natpierce.oss-cn-beijing.aliyuncs.com/linux/natpierce-arm64-v1.06.tar.gz  制作,其他架构设备效果未知需自行测试。
+VPN 冲突警告：本模块不能与其他 VPN 共存。开启其他 VPN 后，皎月连会停止服务。
 
-测试方法：官网页面下载对应架构的linux二进制文件->https://www.natpierce.cn/pc/downloads/index_new.html  解压缩后获得natpierce 将/system/bin 下的natpierce替换为对应架构的二进制文件后，重新压缩为zip安装即可
+恢复方法：如果因开启其他 VPN 导致服务停止，需要先关闭该 VPN，然后进入 Magisk 模块界面将本模块关闭再重新开启。重启服务大约需要等待 1-2 分钟。
 
+✨ 核心特性
+无缝集成：将原版 Linux 二进制文件打包为 Magisk 模块，支持开机自启。
 
-！注意:**请勿刷新网页**,**不能与其他vpn共存**，开启其他vpn后，**皎月连会停止服务**。**需要先关闭vpn再到magisk中重新开关一下进行重启，重启需要大约1-2分钟**！
+实时守护与回显：不仅支持通过 Magisk 开关实时启停服务，还能在面具界面的模块描述中实时回显运行状态（🟢运行中 / 🔴已停止）及其 PID。
+**当皎月连意外挂掉后，会自动重新拉起服务**
 
-安装
+防规则堆叠：智能管理 iptables 与路由规则，随进程启停自动清理，杜绝断网死锁。
 
-1.下载模块 ZIP
+🔬 测试环境与架构说明
+测试环境：Android 16 | 设备：一加 Pad 2 Pro
 
-2.打开 Magisk
+默认架构：本模块默认基于官方 arm64-v1.06 架构制作
 
-3.进入模块
+其他架构设备 (x86_64, arm32 等) 需自行替换核心文件，具体方法如下：
 
-4.点击从本地安装
+前往官网下载对应架构的 Linux 二进制文件：下载页面
 
-5.选择natpierce.zip
+解压缩下载的文件，获得 natpierce 二进制文件。
 
-6.重启设备生效
+打开本模块的 .zip 压缩包。
 
+将压缩包内 /system/bin/natpierce 替换为你刚刚下载的对应架构文件。
 
-使用
+重新压缩为 .zip 后即可正常安装。
 
-安装模块后：
+📥 安装指南
+在 Releases 页面下载最新的 natpierce.zip 模块包。
 
-浏览器访问http://127.0.0.1:33272
+打开 Magisk 管理器。
 
-设置完毕后以后就可以开机自动启动服务
+进入 模块 界面。
 
-想要手动控制服务只需要
+点击 从本地安装。
 
-Magisk 开启模块 → 启动 natpierce
+选择刚下载的 natpierce.zip。
 
-Magisk 关闭模块 → 停止 natpierce
+等待刷入完成后，重启设备生效。
 
+⚙️ 使用与控制
+安装并重启设备后：
 
-日志
+访问 Web UI：打开浏览器，访问 http://127.0.0.1:33272 进行节点配置。设置完毕后，未来设备开机将自动启动服务。
+
+手动启停服务：无需使用命令行终端。
+
+在 Magisk 中 开启 模块开关 → 启动 natpierce。
+
+在 Magisk 中 关闭 模块开关 → 停止 natpierce 并清理网络规则。
+
+📁 文件路径与日志管理
+配置文件位置：
+
+/data/adb/modules/natpierce/system/bin/data/config
+
+提示：你可以备份此配置文件，以便在重装系统或模块后跳过繁琐的登录和配置过程 ovo
 
 日志文件位置：
 
 /data/adb/modules/natpierce/logs/
 
-主要日志：
-natpierce.log
-module.txt
-大小超过1MB自动清理
+主要日志：natpierce.log 与 module.txt
 
-配置文件位置:/data/adb/modules/natpierce/system/bin/data/config
+机制：内置日志轮转，单文件大小超过 1MB 时会自动清理
 
-可以保存配置文件便于以后跳过繁琐的登录以及配置过程ovo
-
-免责声明
-本项目仅用于学习和研究用途，请遵守当地法律法规。
-
-![Downloads](https://img.shields.io/github/downloads/gitter0721/natpierce-for-magisk/total)
+⚖️ 免责声明
+本项目仅用于学习和研究用途，请使用者务必遵守当地法律法规。

@@ -1,6 +1,0 @@
-id=natpierce
-name=natpierce
-version=1.6
-versionCode=1
-author=wind1
-description=皎月连模块，支持开机自启动，开关模块控制服务启停  测试环境安卓16 设备一加pad2pro 已测试内容:点对网可用 ！注意:不能与其他vpn共存，开启其他vpn后，皎月连会停止服务。需要先关闭vpn再到magisk中重新开关一下进行重启！

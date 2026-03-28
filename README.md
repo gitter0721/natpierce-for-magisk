@@ -78,3 +78,5 @@ VPN 冲突警告：本模块不能与其他 VPN 共存。开启其他 VPN 后，
 
 ⚖️ 免责声明
 本项目仅用于学习和研究用途，请使用者务必遵守当地法律法规。
+
+![Downloads](https://img.shields.io/github/downloads/gitter0721/natpierce-for-magisk/total)
